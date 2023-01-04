@@ -1,0 +1,5 @@
+Here is the body of message.
+{{message|safe}}
+
+Thank you,
+Divay Mohan

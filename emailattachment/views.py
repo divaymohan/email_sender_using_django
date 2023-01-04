@@ -20,18 +20,11 @@ class EmailAttachementView(View):
         form = self.form_class(request.POST, request.FILES)
 
         if form.is_valid():
-            
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
-            emails = [email.email for email in Users.objects.all()]
             files = request.FILES.getlist('attach')
 
             try:
-                mail = EmailMessage(subject, message, settings.EMAIL_HOST_USER, emails)
-                for f in files:
-                    mail.attach(f.name, f.read(), f.content_type)
-                mail.send()
-                return render(request, self.template_name, {'email_form': form, 'error_message': 'Sent email to %s'%email})
+                form.send_email(files=files)
+                return render(request, self.template_name, {'email_form': form, 'error_message': 'Sent email to'})
             except:
                 return render(request, self.template_name, {'email_form': form, 'error_message': 'Either the attachment is too big or corrupt'})
 
