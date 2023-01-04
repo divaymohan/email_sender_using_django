@@ -61,4 +61,24 @@ class TableView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {'data': self.data})
 
+
+class ShortTableView(View):
+    # form_class = EmailForm
+    template_name = 'tableview/short_table.html'
+    data = {
+        "name": "this is my data",
+        "wbs_data": {
+            "wbs": ["S22-2001", "S22-2002", "S22-2003"],
+            "cbu_po": "Dummy CBU PO",
+            "financial_plan_status": "Done",
+            "budgeted_amount": "Capital",
+            "billed_amount": 50000,
+            "unbilled_amount":1234
+
+        }
+    }
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'data': self.data})
+
    

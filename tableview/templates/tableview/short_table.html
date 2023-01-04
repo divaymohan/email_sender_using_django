@@ -13,43 +13,55 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="mt-5 mb-3">MSO Signoff details</h1>
+        <h1 class="mt-5 mb-3">MSO Signoff short description</h1>
 
           {% if data %}
           <div class="alert alert-primary" role="alert">
             {{data.name}}
           </div>
           {% endif %}
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">WBS</th>
-                <th scope="col">Dwscription</th>
-                <th scope="col">Milestone due date</th>
-                <th scope="col">Cap/Exp</th>
-                <th scope="col">SOW MSO Amount</th>
-                <th scope="col">HAEA Invoice</th>
-                <th scope="col">HAEA Invoice Date</th>
-                <th scope="col">Status</th>
-                <th scope="col">Upload</th>
-              </tr>
-            </thead>
-            {% for wbs_data in data.wbs_data %}
+          <table class="table table-hover table-bordered">
+            {% comment %} {% for wbs_data in data.wbs_data %} {% endcomment %}
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>{{wbs_data.wbs}}</td>
-                <td>{{wbs_data.description}}</td>
-                <td>{{wbs_data.milestone_due_date}}</td>
-                <td>{{wbs_data.Cap_or_Exp}}</td>
-                <td>${{wbs_data.sow_mso_amount}}</td>
-                <td>{{wbs_data.haea_invoice}}</td>
-                <td>{{wbs_data.haea_invoice_date}}</td>
-                <td>{{wbs_data.status}}</td>
-                <td><a href="url">upload</a></td>
-              </tr>
-              {% endfor %}
+                <th scope="row">wbs</th>
+                <td>
+                    {%for wbs in data.wbs_data.wbs %}
+                        {{wbs}},
+                    {%endfor%}
+
+                </td>
+                <th scope="row">cbu_po</th>
+                <td>
+                    {{data.wbs_data.cbu_po}}
+
+                </td>
+             </tr>
+             <tr>
+                <th scope="row">financial_plan_status</th>
+                <td>
+                    {{data.wbs_data.financial_plan_status}}    
+
+                </td>
+                <th scope="row">budgeted_amount</th>
+                <td>
+                    {{data.wbs_data.budgeted_amount}}
+
+                </td>
+             </tr>
+             <tr>
+                <th scope="row">billed_amount</th>
+                <td>
+                    {{data.wbs_data.billed_amount}}
+
+                </td>
+                <th scope="row">unbilled_amount</th>
+                <td>
+                    {{data.wbs_data.unbilled_amount}}
+
+                </td>
+             </tr>
+              {% comment %} {% endfor %} {% endcomment %}
             </tbody>
           </table>
 
