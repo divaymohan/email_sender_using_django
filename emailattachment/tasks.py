@@ -9,6 +9,3 @@ from .email import send_email
 def send_email_task(subject, message, emails, files):
     # print("i am inside task")
     return send_email(subject=subject,message=message,emails=emails,files=files)
-
-
-
