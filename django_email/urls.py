@@ -22,5 +22,5 @@ from tableview import urls as tableview_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(emailattachment_urls)),
-    path('/table', include(tableview_urls))
+    path('table', include(tableview_urls))
 ]

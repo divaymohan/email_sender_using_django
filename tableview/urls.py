@@ -1,7 +1,6 @@
 from django.urls import path
-from emailattachment.views import EmailAttachementView
+from tableview.views import TableView
 
 urlpatterns = [
-    path('', EmailAttachementView.as_view(), name='emailattachment')
-
+    path('', TableView.as_view(), name='tableview')
 ]
