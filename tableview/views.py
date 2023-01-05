@@ -78,7 +78,75 @@ class ShortTableView(View):
         }
     }
 
+    
+
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {'data': self.data})
+
+class ToggleTableView(View):
+    # form_class = EmailForm
+    template_name = 'tableview/toggle_view.html'
+    data_short = {
+        "name": "this is my data",
+        "wbs_data": {
+            "wbs": ["S22-2001", "S22-2002", "S22-2003"],
+            "cbu_po": "Dummy CBU PO",
+            "financial_plan_status": "Done",
+            "budgeted_amount": "Capital",
+            "billed_amount": 50000,
+            "unbilled_amount":1234
+
+        }
+    }
+    data_long = {
+        "name": "this is my data",
+        "wbs_data": [{
+            "wbs": "S22-2001",
+            "description": "Project kick off",
+            "milestone_due_date": "12/1/2022",
+            "Cap_or_Exp": "Capital",
+            "sow_mso_amount": 50000,
+            "haea_invoice":1234,
+            "haea_invoice_date":"12/1/2022",
+            "status":"Invoiced"
+
+        },
+        {
+            "wbs": "S22-2001",
+            "description": "Project kick off",
+            "milestone_due_date": "12/1/2022",
+            "Cap_or_Exp": "Capital",
+            "sow_mso_amount": 50000,
+            "haea_invoice":1234,
+            "haea_invoice_date":"12/1/2022",
+            "status":"Invoiced"
+
+        },
+        {
+            "wbs": "S22-2001",
+            "description": "Project kick off",
+            "milestone_due_date": "12/1/2022",
+            "Cap_or_Exp": "Capital",
+            "sow_mso_amount": 50000,
+            "haea_invoice":1234,
+            "haea_invoice_date":"12/1/2022",
+            "status":"Invoiced"
+
+        },
+        {
+            "wbs": "S22-2001",
+            "description": "Project kick off",
+            "milestone_due_date": "12/1/2022",
+            "Cap_or_Exp": "Capital",
+            "sow_mso_amount": 50000,
+            "haea_invoice":1234,
+            "haea_invoice_date":"12/1/2022",
+            "status":"Invoiced"
+
+        },]
+    }
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'data_short': self.data_short, 'data_long': self.data_long})
 
    
