@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 
     'emailattachment', # Register App
     'tableview',
+    'poll',
+    'datatables',
 ]
 
 MIDDLEWARE = [
