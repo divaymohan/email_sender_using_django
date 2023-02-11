@@ -1,7 +1,5 @@
 # How to Send Email With Attachments in Django
 
-In this tutorial, you will learn how to send email with multiple attachments in Django. You will also learn how to send email with a single attachment. Here, I will explain how to setup your SendGrid Account for Sending Emails for your Django Application. I will also explain how to set your Email Host in the settings.py file, in your application
-
 ### Setup
 1. Create a folder and put all the files inside it.
 2. Create a virtual environtment - `virtualenv env`
